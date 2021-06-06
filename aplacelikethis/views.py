@@ -16,5 +16,5 @@ def post_details(request, year, month, day, post):
                              publish__month=month,
                              publish__day=day)
     return render(request,
-                  'aplacelikethis/post/detail.html',
+                  'aplacelikethis/post/details.html',
                   {'post': post})

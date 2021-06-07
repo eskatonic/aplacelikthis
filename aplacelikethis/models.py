@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 # reverse allows you to build URLs by their name and pass optional parameters
 from django.urls import reverse
+# taggit is an addon to allow tagging of posts
+from taggit.managers import TaggableManager
 
 # objects is the default model manager, but you can add additional ones. PublishedManager
 # filters only published posts.
@@ -36,6 +38,7 @@ class Post(models.Model):
     # Need to add objects here to keep it as the default
     objects = models.Manager()  # Default model manager
     published = PublishedManager()  # Published model manager
+    tags = TaggableManager() # Allows you to work with tags on POST objects
 
     # Meta contains metadata, used here for sorting posts by published date in
     # descending order ('-publish')

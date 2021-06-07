@@ -7,31 +7,43 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 # Adding to allow email:
 from django.core.mail import send_mail
+# Adding to allow tagging and aggregated counts of tags:
+from taggit.models import Tag
+from django.db.models import Count
 
 from .forms import EmailPostForm, CommentForm
 from .models import Post, Comment
 
-class PostListView(ListView):
-    queryset = Post.published.all()
-    context_object_name = 'posts'
-    paginate_by = 5
-    template_name = 'aplacelikethis/post/list.html'
+# class PostListView(ListView):
+#     queryset = Post.published.all()
+#     context_object_name = 'posts'
+#     paginate_by = 5  # This determines how many posts are going to show at once.
+#     template_name = 'aplacelikethis/post/list.html'
 
-# def post_list(request):
-#     object_list = Post.published.all()
-#     paginator = Paginator(object_list, 5)
-#     page = request.GET.get('page')
-#     try:
-#         posts = paginator.page(page)
-#     except PageNotAnInteger:
-#         posts = paginator.page(1)
-#     except EmptyPage:
-#         posts = paginator.page(paginator.num_pages)
-#     # posts = Post.published.all()
-#     return render(request,
-#                   'aplacelikethis/post/list.html',
-#                   {'page': page,
-#                   'posts': posts})
+def post_list(request, tag_slug=None):
+    object_list = Post.published.all()
+    tag = None
+
+    # If there's a tag slug, get the Tag object, then filter posts by tag.
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        # __in is a "field lookup"
+        object_list = object_list.filter(tags__in=[tag])
+
+    paginator = Paginator(object_list, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    # posts = Post.published.all()
+    return render(request,
+                  'aplacelikethis/post/list.html',
+                  {'page': page,
+                  'posts': posts,
+                  'tag': tag})
 
 
 def post_details(request, year, month, day, post):
@@ -59,12 +71,19 @@ def post_details(request, year, month, day, post):
         # If it's not a POST (i.e., a GET), create a new comment_form:
         comment_form = CommentForm()        
 
+    # Aggregation: Get tags for current post, find posts with the same tag, then order them.
+    # flat=True "flattens" the returned results to an array.
+    post_tags_ids = post.tags.values_list('id', flat=True)
+    similar_posts = Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags','-publish')[:5]
+
     return render(request,
                   'aplacelikethis/post/details.html',
                   {'post': post,
                   'comments': comments,
                   'new_comment': new_comment,
-                  'comment_form': comment_form})
+                  'comment_form': comment_form,
+                  'similar_posts': similar_posts})
 
 def post_share(request, post_id):
     post = get_object_or_404(Post, id=post_id, status='published')

@@ -15,3 +15,9 @@ https://owasp.org/www-community/attacks/csrf
 
 Aggregation:
 https://docs.djangoproject.com/en/3.0/topics/db/aggregation/
+
+HTML5 Boilerplate:
+https://html5boilerplate.com/
+
+Coloors for Color Scheme Generation:
+https://coolors.co/

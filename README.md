@@ -12,3 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/forms/fields/
 
 Cross-Site Request Forgery (CSRF) Attacks:
 https://owasp.org/www-community/attacks/csrf
+
+Aggregation:
+https://docs.djangoproject.com/en/3.0/topics/db/aggregation/

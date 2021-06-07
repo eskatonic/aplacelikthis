@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aplacelikethis',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Added to allow email testing:
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Added to make taggit case-insensitive:
+
+TAGGIT_CASE_INSENSITIVE = True

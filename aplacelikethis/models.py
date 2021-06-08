@@ -10,8 +10,6 @@ from taggit.managers import TaggableManager
 
 # objects is the default model manager, but you can add additional ones. PublishedManager
 # filters only published posts.
-
-
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self).get_queryset().filter(status='published')
@@ -22,9 +20,9 @@ class Post(models.Model):
         ('draft', 'Draft'),
         ('published', 'Published'),
     )
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=100)
     # unique_for_date just makes sure each slug is unique on a given date
-    slug = models.SlugField(max_length=250, unique_for_date='publish')
+    slug = models.SlugField(max_length=100, unique_for_date='publish')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts')
     body = models.TextField()

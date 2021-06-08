@@ -136,3 +136,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Added to make taggit case-insensitive:
 
 TAGGIT_CASE_INSENSITIVE = True
+
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)

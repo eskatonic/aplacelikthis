@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aplacelikethis',
     'taggit',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

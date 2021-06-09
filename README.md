@@ -4,7 +4,7 @@ General Assembly SEI Project 4: A Place Like This - The Replacening
 
 ## Welcome
 
-A Place Like This is my project to change my long-standing, long-neglected WordPress blog into a fully-functional repository for my Software Engineering projects and portfolio.  I have owned the domain for over a decade, and always meant to do "more" with it.  Thanks to General Assembly's fine instructors, I now have the skills and motivation to put it to work.
+A Place Like This is a project to change my long-standing, long-neglected WordPress blog into a fully-functional repository for my Software Engineering projects and portfolio.  I have owned the domain for over a decade, and always meant to do "more" with it.  Thanks to General Assembly's fine instructors, I now have the skills and motivation to put it to work.
 
 The new version is built using Django and MongoDB.  The first phase is to get the blog portion up and running, emulating as much of the functionality of the original WordPress site as I can.  This includes things like basic CRUD operations for the blog posts, being able to categorize posts with tags, and allowing visitors to leave comments.
 

@@ -10,7 +10,7 @@ The new version is built using Django and MongoDB.  The first phase is to get th
 
 Since a blog does not require a lot of network bandwidth, and can be rendered and managed completely from the back-end, there is currently no front-end component.  However, since it's now my playground for developing web applications, future applications will likely include front-end code as well.  With Django, these applications can easily be added to the current django project.
 
-My blog has almost always been more of a repository for interesting articles and papers that I find on subjects that I am interested in, such as Science, Technology, Artificial Intelligence, Transhumanist, etc.  
+My blog has almost always been mostly a repository for links to articles and papers that I find on subjects that I am interested in, such as Science, Technology, Artificial Intelligence, Transhumanist, etc.  I now plan on using it to document my continuing education in full-stack development and database administration as well.
 
 
 ## Resources

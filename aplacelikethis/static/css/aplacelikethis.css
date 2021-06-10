@@ -1,7 +1,15 @@
+:root {
+    --background: #04294e;
+    --lightgrey: #eae5e3;
+    --darkgrey: #0e1017;
+    --headerfont: #40719d;
+}
+
 body { 
+    background-color: var(--lightgrey);
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif; 
+    font-family:'Exo 2', sans-serif; 
 }
 
 a { 
@@ -10,6 +18,7 @@ a {
 }
 
 h1 { 
+    color: var(--headerfont);
     font-weight:normal;
     border-bottom:1px solid #bbb;
     padding:0 0 10px 0;
@@ -30,13 +39,14 @@ h2 {
     float:right;
     width:30%;
     padding:10px;
-    background:#efefef; 
+    background: var(--background); 
     height:100%;
+    color: var(--lightgrey);
 }
 
 p.date { 
-    color:#ccc;
-    font-family: georgia, serif;
+    /* color:#ccc; */
+    font-family: 'Exo 2', sans-serif;
     font-size: 12px;
     font-style: italic; 
 }

@@ -107,3 +107,9 @@ def post_share(request, post_id):
     {'post': post,
     'form': form,
     'sent': sent})
+
+def portfolio(request):
+    return render(request, 'aplacelikethis/portfolio.html')
+
+def about(request):
+    return render(request, 'aplacelikethis/about.html')

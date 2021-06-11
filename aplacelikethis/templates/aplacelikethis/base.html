@@ -1,31 +1,49 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{% block title %}{% endblock %}</title>
-        <!-- <link href="{% static 'css/aplacelikethis.css' %}" rel="stylesheet"> -->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/aplacelikethis.css' %}" >
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        {% block nav %}
-        <ul id="nav">
-            <li>{% block nav-home %}<a href="localhost:8000/aplacelikethis/">Home</a>{% endblock %}</li>
-            <li>{% block nav-about %}<a href="https://www.linkedin.com/in/wbmays/">About</a>{% endblock %}</li>
-            <li>{% block nav-contact %}<a href="">Contact</a>{% endblock %}</li>
-        </ul>
-        {% endblock %}
-        <div id="content">
-            {% block content %}
-            {% endblock %}
-        </div>
-        <div id="sidebar">
-            <h2><a href="localhost:8000/aplacelikethis/">A Place Like This</a></h2>
-            <p>My place on the web.</p>
-            <h3><a href="https://www.linkedin.com/in/wbmays/" target="_blank">About Me</a></h3>
-            <h3><a href="https://eskatonic.github.io/flashcards/" target="_blank">Projects</a></h3>
-            <h3><a href="https://www.aplacelikethis.com/" target="_blank">More Links and Stuff and Things</a></h3>
-        </div>
-    </body>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <!-- <link href="{% static 'css/aplacelikethis.css' %}" rel="stylesheet"> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/aplacelikethis.css' %}"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% block nav %}
+    <ul id="nav">
+      <li>
+        {% block nav-home %}<a href="/aplacelikethis/">Home</a>{% endblock %}
+      </li>
+      <!-- <li>{% block nav-about %}<a href="https://www.linkedin.com/in/wbmays/">About</a>{% endblock %}</li>
+            <li>{% block nav-contact %}<a href="">Contact</a>{% endblock %}</li> -->
+    </ul>
+    {% endblock %}
+    <div id="content">{% block content %} {% endblock %}</div>
+    <div id="sidebar">
+      <h2><a href="/aplacelikethis/">A Place Like This</a></h2>
+      <p>My place on the web.</p>
+      <h3>
+        <a href="https://www.linkedin.com/in/wbmays/" target="_blank"
+          >About Me</a
+        >
+      </h3>
+      <h3>
+        <a href="https://eskatonic.github.io/flashcards/" target="_blank"
+          >Portfolio / Projects</a
+        >
+      </h3>
+      <h3>
+        <a href="https://www.aplacelikethis.com/" target="_blank"
+          >More Links and Stuff and Things</a
+        >
+      </h3>
+    </div>
+  </body>
 </html>

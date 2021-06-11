@@ -10,6 +10,10 @@ ipython = "*"
 django-taggit = "*"
 django-extensions = "*"
 werkzeug = "*"
+whitenoise = "*"
+dj-database-url = "*"
+gunicorn = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 autopep8 = "*"
